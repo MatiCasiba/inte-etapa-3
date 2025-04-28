@@ -19,7 +19,7 @@ const URL_FRONT = process.env.URL_FRONTEND_CORS
 
 // ! Configuraciones
 const corsConfig = {
-  origin: URL_FRONT // para render (prod: osea cuando lo suba ) -> http:://etapa-3.netlify.com/ | en el caso del servidor local (dev) -> http://localhost:5173
+  origin: URL_FRONT
 }
 
 // ! Middlewares
