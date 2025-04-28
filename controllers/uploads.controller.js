@@ -9,8 +9,13 @@ const uploadImagen =  (req, res) => {
         })
     }
 
-    res.json({
-        foto: imagen.filename
+    //console.log(req.protocol) // http o https
+    //console.log(req.get('host')); //localhost: ...
+    //console.log(imagen.filename) // nombre del archivo
+
+    const urlCompletaBack = `${req.protocol}://${req.get('host')}/uploads/${imagen.filename}`
+    res.status(201).json({
+        foto: urlCompletaBack
     })
 }
 

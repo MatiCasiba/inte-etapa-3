@@ -1,46 +1,60 @@
 import models from '../models/usuarios.model.js'
 
 const getAll = (req, res) => {
-
     res.send('getAll')
 }
 
 const getOne = (req, res) => {
-
     res.send('getOne')
 }
 
 const create = async (req, res) => {
     const nuevoUsuario = req.body
 
-    const {nombre, correo, password, confirmpassword } = nuevoUsuario
+    const { nombre, correo, password, confirm_password } = nuevoUsuario
 
-    if(password !== confirmpassword){
-        console.log('La contraseña no coincide');
+    if ( password !== confirm_password ) {
+        console.log('La contraseñas no coinciden')
         return res.status(500).json({
-            mensaje: 'la contraseña no coincide'
+            mensaje: 'La contraseñas no coinciden'
         })
     }
-    
-    // TODO: controlar si el usuario con el correo enviado ya existe.
+
+    if ( password.length < 5 ) {
+        return res.status(500).json({
+            mensaje: 'La contraseña debe tener al menos 5 caracteres'
+        })
+    }
+
+    // obtenerUsuarioPorEmail -> Si lo encuentra, devuelve el usuario y sino devuelve null
+    /* const usuarioEncontrado = await models.obtenerUsuarioPorEmail( correo ) 
+
+    if ( !usuarioEncontrado ) {
+        return res.status(500).json({
+            mensaje: 'No se puede crear un usuario con ese correo'
+        })
+    } */
 
     try {
-        const usuarioCreado = await models.crearUnUsuario(nuevoUsuario)
+        let usuarioCreado = await models.crearUnUsuario(nuevoUsuario)
+        usuarioCreado = JSON.parse(JSON.stringify(usuarioCreado))
+        delete usuarioCreado.password
         res.json(usuarioCreado)
     } catch (error) {
-        console.log(error);
-        res.status(500).json({mensaje: 'No se ´pudo crear el usuario'})
+        console.log(error)
+        res.status(500).json({
+            mensaje: 'No se pudo crear el usuario'
+        })
     }
+
 
 }
 
 const update = (req, res) => {
-
     res.send('update')
 }
 
 const remove = (req, res) => {
-
     res.send('remove')
 }
 

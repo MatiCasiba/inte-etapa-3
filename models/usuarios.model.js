@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
+import bcrypt from 'bcrypt'
 
 const UsuarioEsquema = new mongoose.Schema(
     {
@@ -10,7 +11,7 @@ const UsuarioEsquema = new mongoose.Schema(
         correo: {
             type: String,
             required: true,
-            unique: true // no se puede repetir el correo
+            unique: true
         },
         dni: String,
         nacionalidad: String,
@@ -25,6 +26,21 @@ const UsuarioEsquema = new mongoose.Schema(
     }
 )
 
+// Métodos de los esquemas ( Métodos de Mongoose)
+
+UsuarioEsquema.methods.escriptarPassword = async (password) => { // arrow function
+    // Indentificador único que se generar para complicar la descriptación por fuerza bruta.
+    const salt = await bcrypt.genSalt(10) // la semilla -> Un identificador al azar para hacer más robusta la password
+    // password ---> sin escriptar ---> 123456
+    return await bcrypt.hash(password, salt)
+}
+
+// una función -> 21301328dsfafasdf341321 <--- funcHash('123456', 'fecha-de-hoy', 'dfsadsf341231234dsfadfa')
+
+UsuarioEsquema.methods.comprobarPassword = async function() { // traditional
+
+}
+
 const UsuarioModelo = mongoose.model('usuarios', UsuarioEsquema)
 
 // ! Métodos para interactuar con la DB
@@ -35,10 +51,28 @@ const obtenerTodosLosUsuarios = () => {
 const obtenerUnUsuario = () => {
 
 }
-const crearUnUsuario = async (nuevoUsuario) => {
+
+const obtenerUsuarioPorEmail = async (email) => {
+    
     try {
-        const usuarioACrear = new UsuarioModelo(nuevoUsuario)
-        const usuarioGuardado = await usuarioACrear.save()
+
+        const usuarioEncontrado = await UsuarioModelo.findOne( { email } )
+        return usuarioEncontrado
+
+    } catch (error) {
+        throw error
+    }
+
+}
+
+const crearUnUsuario = async (nuevoUsuario) => {
+    console.log(nuevoUsuario) 
+    try {
+        const usuarioACreado = new UsuarioModelo(nuevoUsuario)
+        //      encriptado = encriptarPassword('123456')
+        usuarioACreado.password = await usuarioACreado.escriptarPassword(nuevoUsuario.password)
+
+        const usuarioGuardado = await usuarioACreado.save() // Guardo en Mongo
         return usuarioGuardado
     } catch (error) {
         throw error
@@ -54,6 +88,7 @@ const eliminarUsuario = () => {
 export default {
     obtenerTodosLosUsuarios,
     obtenerUnUsuario,
+    obtenerUsuarioPorEmail,
     crearUnUsuario,
     editarUnUsuario,
     eliminarUsuario
