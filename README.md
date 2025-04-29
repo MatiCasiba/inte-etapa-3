@@ -445,18 +445,18 @@ import productosController from '../controllers/productos.controller.js'
 const routerProductos = express.Router()
 
 // ! CRUD Productos
-// CRUD -> R:READ ALL -> GET ALL -> http://localhost:8080/api/v1/productos
+// CRUD -> R:READ ALL -> GET ALL -> http://localhost:/api/v1/productos
 routerProductos.get('/', productosController.getAll)
-// CRUD -> R:READ ONE -> GET ONE -> http://localhost:8080/api/v1/productos/id
+// CRUD -> R:READ ONE -> GET ONE -> http://localhost:/api/v1/productos/id
 routerProductos.get('/:id', productosController.getOne)
   
-// CRUD -> C:CREATE -> POST -> http://localhost:8080/api/v1/productos + productoACrear
+// CRUD -> C:CREATE -> POST -> http://localhost:/api/v1/productos + productoACrear
 routerProductos.post('/', productosController.create)
   
-// CRUD -> U:UPDATE -> PUT -> http://localhost:8080/api/v1/productos/id + productoAEditar
+// CRUD -> U:UPDATE -> PUT -> http://localhost:/api/v1/productos/id + productoAEditar
 routerProductos.put('/:id', productosController.update)
   
-// CRUD -> D:DELETE -> DELETE -> http://localhost:8080/api/v1/productos/id
+// CRUD -> D:DELETE -> DELETE -> http://localhost:/api/v1/productos/id
 routerProductos.delete('/:id', productosController.remove)
 
 export default routerProductos
@@ -483,18 +483,18 @@ import usuariosController from '../controllers/usuarios.controller.js'
 
 
 // ! CRUD Usuarios
-// CRUD -> R:READ ALL -> GET ALL -> http://localhost:8080/api/v1/usuarios
+// CRUD -> R:READ ALL -> GET ALL -> http://localhost:/api/v1/usuarios
 routerUsuarios.get('/', usuariosController.getAll)
-// CRUD -> R:READ ONE -> GET ONE -> http://localhost:8080/api/v1/usuarios/id
+// CRUD -> R:READ ONE -> GET ONE -> http://localhost:/api/v1/usuarios/id
 routerUsuarios.get('/:id', usuariosController.getOne)
   
-// CRUD -> C:CREATE -> POST -> http://localhost:8080/api/v1/usuarios + usuarioACrear
+// CRUD -> C:CREATE -> POST -> http://localhost:/api/v1/usuarios + usuarioACrear
 routerUsuarios.post('/', usuariosController.create)
   
-// CRUD -> U:UPDATE -> PUT -> http://localhost:8080/api/v1/usuarios/id + usuarioAEditar
+// CRUD -> U:UPDATE -> PUT -> http://localhost:/api/v1/usuarios/id + usuarioAEditar
 routerUsuarios.put('/:id', usuariosController.update)
   
-// CRUD -> D:DELETE -> DELETE -> http://localhost:8080/api/v1/usuarios/id
+// CRUD -> D:DELETE -> DELETE -> http://localhost:/api/v1/usuarios/id
 routerUsuarios.delete('/:id', usuariosController.remove)
 
 export default routerUsuarios
