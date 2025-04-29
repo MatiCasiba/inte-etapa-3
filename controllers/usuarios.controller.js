@@ -1,11 +1,26 @@
 import models from '../models/usuarios.model.js'
+import handleMongoId from '../utils/handle-mongo-id.js'
 
-const getAll = (req, res) => {
-    res.send('getAll')
+const getAll = async (req, res) => {
+    //res.send('getAll')
+    try {
+        const usuarios = await models.obtenerTodosLosUsuarios()
+        res.json(handleMongoId(usuarios))
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({mensaje: 'No se pudo obtener el usuario solicitado'})
+    }
 }
 
-const getOne = (req, res) => {
-    res.send('getOne')
+const getOne = async (req, res) => {
+    //res.send('getOne')
+    const id = req.params.id
+    try {
+        const usuario = await models.obtenerUnUsuario(id)
+        res.json(handleMongoId(usuario))
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 const create = async (req, res) => {

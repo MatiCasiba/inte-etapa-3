@@ -45,11 +45,21 @@ const UsuarioModelo = mongoose.model('usuarios', UsuarioEsquema)
 
 // ! Métodos para interactuar con la DB
 
-const obtenerTodosLosUsuarios = () => {
-
+const obtenerTodosLosUsuarios = async () => {
+    try {
+        const usuarios = await UsuarioModelo.find()
+        return usuarios
+    } catch (error) {
+        throw error
+    }
 }
-const obtenerUnUsuario = () => {
-
+const obtenerUnUsuario = async () => {
+    try {
+        const usuario = await UsuarioModelo.findById(id)
+        return usuario
+    } catch (error) {
+        throw error
+    }
 }
 
 const obtenerUsuarioPorEmail = async (email) => {
