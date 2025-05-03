@@ -1,8 +1,9 @@
-Nombre: Matias Casiba
-Link Repo Github: https://github.com/MatiCasiba/inte-etapa-3
-Link Netlify:
-Link Mongo Atlas:
-Link Render:
+* Nombre: Matias Casiba
+* Link Repo Github: https://github.com/MatiCasiba/inte-etapa-3
+* Link Repo Github (front): https://github.com/MatiCasiba/front-integrador-etapa-3
+* Link Netlify:
+* Link Mongo Atlas:
+* Link Render:
 
 # Base de datos de Drumstore
 
