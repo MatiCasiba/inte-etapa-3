@@ -186,12 +186,10 @@ const create = async (req, res) => {
 }
 
 const update = (req, res) => {
-
     res.send('update')
 }
 
 const remove = (req, res) => {
-
     res.send('remove')
 }
 
@@ -203,6 +201,10 @@ export default {
     remove
 }
 ```
+* getAll: va a traer todos los usuarios de la base de datos y los formatea ocn handleMongoID
+* getOne: trea un usuario por ID
+* create: Valida que las contraaseñas coincidan y tengan un mínimo 5 caracteres. Luego crea el usuario, encripta la contraseña y devuelve el nuevo usuario sin el campo password
+
 
 ## Middlewares
 Los middlewares van a permitir a loss usuarios hacer solicitudes (cómo el envio de un formulario en un explorador web o permitir que un servidor web devuelva páginas web dinámicas en función del perfil de un usuario). Dentro de la carpeta middlewaress se va a encontra el archivo uploadss.middleware.js:
