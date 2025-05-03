@@ -120,6 +120,7 @@ Este archivo tiene 5 métodos que manejan operaciones CRUD
 * getOne: trae un producto por su ID (req.params.id) y lo devuelve formateado con handleMongoId
 * create: recibe un producto desde req.body, lo guarda en la base de datos y devuelve el resultado formateado
 * update: va a recibir el ID del producto por params y los nuevos datos por body, los actualiza y devuelve el resultado
+* remove: va a eliminar un producto por ID y devuelve el producto eliminado formateado
 
 ### uploads.controller.js
 ```js
