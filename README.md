@@ -144,6 +144,8 @@ export default {
     uploadImagen
 }
 ```
+#### uploadImagen
+Esta función recibe una imagen subida por multer, contruye la URL completa del archivo subido y la devuleve. Si no hay imagen, va a devolver error 400 
 
 ### usuarios.controller.js
 ```js
