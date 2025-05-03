@@ -11,7 +11,7 @@ Ahora voy a crear la parte Back para luego conectar mi Front con este, osea la p
 ## Controllers
 Dentro de esta carpeta estarán los controladores de carrito, productos, uploads y usuarios:
 
-### carrito.js
+### carrito.controller.js
 ```js
 import model from '../models/carrito.model.js'
 
@@ -34,8 +34,10 @@ export default {
     guardarCarrito
 }
 ```
+#### guardarCarrito
+Este código va a recibir un carrito desde el body del rquest, llama al modelo crearCarrito() para guardarlo en MongoDB. Si esto sale bien, responde con el carrito creado, si llega a fallar, devuelve un 500 con un mensaje de error
 
-### productos.js
+### productos.controller.js
 ```js
 import models from '../models/productos.model.js'
 import handleMongoId from '../utils/handle-mongo-id.js'
@@ -114,7 +116,7 @@ export default {
 }
 ```
 
-### uploads.js
+### uploads.controller.js
 ```js
 
 const uploadImagen =  (req, res) => {
