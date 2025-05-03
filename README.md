@@ -207,9 +207,9 @@ export default {
 
 
 ## Middlewares
-Los middlewares van a permitir a loss usuarios hacer solicitudes (cómo el envio de un formulario en un explorador web o permitir que un servidor web devuelva páginas web dinámicas en función del perfil de un usuario). Dentro de la carpeta middlewaress se va a encontra el archivo uploadss.middleware.js:
+Los middlewares van a permitir a loss usuarios hacer solicitudes (cómo el envio de un formulario en un explorador web o permitir que un servidor web devuelva páginas web dinámicas en función del perfil de un usuario). Dentro de la carpeta middlewaress se va a encontra el archivo uploads.middleware.js:
 
-### uploadss.middleware.js
+### uploads.middleware.js
 ```js
 import multer from 'multer'
 import storage from '../utils/handle-storage.js'
@@ -218,6 +218,8 @@ const uploadsMiddleware = multer( { storage })
 
 export default uploadsMiddleware
 ```
+
+Este configura multer con el almacenamiento que se define en utils/handle-storage.js para manejar uploads de imágenes
 
 ## Models
 
