@@ -625,7 +625,7 @@ const handleMongoId = (elemento) => { // * elemento -> un documento | un array d
 
 export default handleMongoId
 ```
-
+Convierte el campo MongoDB _id a id para que sea más fácil de manejar del lado del frontend, soporta objetos individuales o arrays
 
 ### handle-storaje.js
 ```js
