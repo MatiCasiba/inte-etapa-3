@@ -594,6 +594,7 @@ const connection = async (uri) => {
 
 export default connection
 ```
+La función conecciton se encarga de conectar la app con MongoDB usando mongoose, imprime por consola si la conexión fue exitosa o si hubo un error en el intento
 
 ### handle-mongo-id.js
 ```js
@@ -627,7 +628,7 @@ export default handleMongoId
 ```
 Convierte el campo MongoDB _id a id para que sea más fácil de manejar del lado del frontend, soporta objetos individuales o arrays
 
-### handle-storaje.js
+### handle-storage.js
 ```js
 import path from 'node:path'
 import multer from 'multer'
