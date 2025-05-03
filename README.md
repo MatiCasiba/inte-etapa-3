@@ -222,6 +222,7 @@ export default uploadsMiddleware
 Este configura multer con el almacenamiento que se define en utils/handle-storage.js para manejar uploads de imágenes
 
 ## Models
+Dentro de esta carpeta se encontrará los modelos y funciones para interacutar con MongoDB
 
 ### carrito.model.js
 ```js
@@ -266,6 +267,8 @@ export default {
 }
 
 ```
+#### Función crearCarrito
+Esta función lo que va a hacer es recibir un objeto de carrito y lo guarda como un documenteo en la colección carritos.
 
 ### productos.model.js
 ```js
@@ -368,6 +371,7 @@ export default {
 
 }
 ```
+
 
 ### usuarioss.model.js
 ```js
