@@ -115,6 +115,9 @@ export default {
     remove
 }
 ```
+Este archivo tiene 5 métodos que manejan operaciones CRUD
+* getAll: va a traer todos los productos desde la DB y lo formatea con handleMongoId para reemplazar _id por id
+* getOne: trae un producto por su ID (req.params.id) y lo devuelve formateado con handleMongoId
 
 ### uploads.controller.js
 ```js
