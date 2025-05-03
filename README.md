@@ -371,7 +371,12 @@ export default {
 
 }
 ```
-
+#### Sus funciones
+* obtenerTodosLosProductos: devuelve todos los productos de la colección
+* obtenerUnProducto: devuelve un solo porducto por ID
+* crearUnProducto: guarda un nuevo producto
+* editarProducto: actualiza un producto existente por ID y devuelve el actualizado
+* eliminarProducto: elimina un producto por ID
 
 ### usuarioss.model.js
 ```js
