@@ -493,7 +493,9 @@ export default {
 * crearUnUsuario: recibe un objeto usuario, encripta su contraseña y lo guarda en la DB
 
 ## Routers
-Dentro de la carpeta routers se encuentran las direcciones de carrito, productos, uploads y usuarios:
+Dentro de la carpeta routers se encuentran las direcciones de carrito, productos, uploads y usuarios. Cada router define las rutas y enlaza las funciones del controller correspondiente con su endpoint, ejemplo:
+
+* /api/v1/productos se va a conectar con productos.controller.js 
 
 ### carrito.router.js
 ```js
@@ -623,6 +625,7 @@ const handleMongoId = (elemento) => { // * elemento -> un documento | un array d
 
 export default handleMongoId
 ```
+
 
 ### handle-storaje.js
 ```js
