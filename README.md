@@ -647,5 +647,6 @@ const storage = multer.diskStorage({
 
 export default storage
 ```
+El storage configura multer para guardar imágenes subidas en la carpeta /public/uploads con un nombre único generado por uuid
 
 
