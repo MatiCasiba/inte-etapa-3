@@ -25,7 +25,6 @@ const corsConfig = {
 // ! Middlewares
 app.use(express.json()) // Traduce a Express el objeto que llega por el body
 app.use(express.static(path.join('public')))
-//app.use(cors('https://drumstore-etapa3.netlify.app/')) // si no le paso configuracion, todos se van a poder conectar -> cors(): todos los origienes pueden acceder, osea que le tengo que pasar corsConfig
 app.use(cors(corsConfig))
 
 // ! Rutas
